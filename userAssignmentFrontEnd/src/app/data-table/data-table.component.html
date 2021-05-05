@@ -50,8 +50,8 @@
     <tr>
       <!-- username heading -->
       <th class="table-heading" *ngIf="showMeTable1">
-        User Name &nbsp;
-        <i class="fa fa-sort" (click)="sort('username')"></i>
+        User Name &nbsp;&nbsp;&nbsp;
+        <i class="fa fa-sort"  (click)="sort('username')"></i>
         <br />
         <input [(ngModel)]="username" (input)="UsernameFilter()" style="width: 100px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
@@ -59,35 +59,35 @@
       <!-- firstname heading -->
 
       <th class="table-heading" *ngIf="showMeTable2">
-        First Name&nbsp;
+        First Name&nbsp;&nbsp;
         <i class="fa fa-sort" (click)="sort('firstname')"></i>
         <br />
-        <input [(ngModel)]="firstname" (input)="firstnameFilter()" style="width: 100px" class="filter" type="text"
+        <input [(ngModel)]="firstname" (input)="firstnameFilter()" style="width: 90px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
       </th>
       <!-- lastname heading -->
 
       <th class="table-heading" *ngIf="showMeTable3">
-        Last Name&nbsp;
+        Last Name&nbsp;&nbsp;
         <i class="fa fa-sort" (click)="sort('lastname')"></i>
         <br />
-        <input [(ngModel)]="lastname" (input)="lastnameFilter()" style="width: 100px" class="filter" type="text"
+        <input [(ngModel)]="lastname" (input)="lastnameFilter()" style="width: 90px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
       </th>
       <!-- email heading -->
 
       <th class="table-heading" *ngIf="showMeTable4">
         Email&nbsp;
-        <i class="fa fa-sort" (click)="sort('email')"></i>
+        <i class="fa fa-sort" style="position: relative;left: 105px" (click)="sort('email')"></i>
         <br />
-        <input [(ngModel)]="email" (input)="emailFilter()" style="width: 100px" class="filter" type="text"
+        <input [(ngModel)]="email" (input)="emailFilter()" style="width: 160px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
       </th>
       <!-- number heading -->
 
       <th class="table-heading" *ngIf="showMeTable5">
         Number&nbsp;
-        <i class="fa fa-sort" (click)="sort('number')"></i>
+        <i class="fa fa-sort" style="position: relative;left: 30px" (click)="sort('number')"></i>
         <br />
         <input style="width: 100px" class="filter" type="text" placeholder="&nbsp;Filter" />
       </th>
@@ -95,15 +95,15 @@
 
       <th class="table-heading" *ngIf="showMeTable6">
         DOB&nbsp;
-        <i class="fa fa-sort" (click)="sort('dob')"></i>
+        <i class="fa fa-sort" style="position: relative;left: 30px" (click)="sort('dob')"></i>
         <br />
-        <input style="width: 100px" class="filter" type="text" placeholder="&nbsp;Filter" />
+        <input style="width: 80px" class="filter" type="text" placeholder="&nbsp;Filter" />
       </th>
       <!-- user id heading -->
 
       <th class="table-heading" *ngIf="showMeTable7">
         User Id&nbsp;
-        <i class="fa fa-sort" (click)="sort('userid')"></i>
+        <i class="fa fa-sort" style="position: relative;left: 30px" (click)="sort('userid')"></i>
         <br />
         <input [(ngModel)]="userid" (input)="useridFilter()" style="width: 100px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
@@ -112,18 +112,18 @@
 
       <th class="table-heading" *ngIf="showMeTable8">
         Gender&nbsp;
-        <i class="fa fa-sort" (click)="sort('gender')"></i>
+        <i class="fa fa-sort" style="position: relative;left: 10px" (click)="sort('gender')"></i>
         <br />
-        <input [(ngModel)]="gender" (input)="genderFilter()" style="width: 100px" class="filter" type="text"
+        <input [(ngModel)]="gender" (input)="genderFilter()" style="width: 70px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
       </th>
       <!-- password heading -->
 
       <th class="table-heading" *ngIf="showMeTable9">
         Password&nbsp;
-        <i class="fa fa-sort" (click)="sort('password')"></i>
+        <i class="fa fa-sort" style="position: relative;left: 220px" (click)="sort('password')"></i>
         <br />
-        <input [(ngModel)]="gender" (input)="genderFilter()" style="width: 100px" class="filter" type="text"
+        <input [(ngModel)]="gender" (input)="genderFilter()" style="width: 300px" class="filter" type="text"
           placeholder="&nbsp;Filter" />
       </th>
       
