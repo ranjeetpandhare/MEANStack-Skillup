@@ -1,0 +1,28 @@
+<input type="text" #myInput [(ngModel)]="username" (input)="Search()"/>
+{{username}}
+<table>
+    <tr>
+        <th (click)="sort('username')" >User Name&nbsp;<i class="fa fa-sort"></i></th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>DOB</th>
+        <th>User Id </th>
+        <th>Gender</th>
+        <th>Password</th>
+    </tr>
+    <tr *ngFor="let o of newuser | orderBy:key:reverse"  >
+        <td >{{o.username}}</td>
+        <td>{{o.firstname}}</td>
+        <td>{{o.lastname}}</td>
+        <td>{{o.email}}</td>
+        <td>{{o.number}}</td>
+        <td>{{o.dob}}</td>
+        <td>{{o.userid}}</td>
+        <td>{{o.gender}}</td>
+        <td>{{o.password}}</td>
+
+
+    </tr>
+</table>

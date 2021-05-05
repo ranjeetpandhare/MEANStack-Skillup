@@ -1,0 +1,38 @@
+.allFormData {
+    border: 0.5px solid #dbe1e8;
+    position: absolute;
+    top: 120px;
+    left: -640px;
+    margin-left: 900px;
+    height: 600px;
+    width: 990px;
+  }
+
+  .title {
+    position: absolute;
+    top: 90px;
+    left: 265px;
+  }
+  .datepicker{
+    position: absolute;
+    margin-left: 380px;
+    margin-top: 0px;
+    font-size: 13px;
+    /* z-index: 1; */
+  }
+  .Yearpicker{
+    position: absolute;
+    margin-left: 600px;
+    margin-top: 0px;
+    font-size: 13px;
+    /* z-index: 1; */
+
+    
+  }
+  .chart-wrapper{
+    width: 800px;
+   height: 400px;
+   position: absolute;
+   margin-left: 50px;
+   margin-top: 50px;
+}

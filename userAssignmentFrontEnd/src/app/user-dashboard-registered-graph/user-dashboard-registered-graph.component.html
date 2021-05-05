@@ -1,0 +1,66 @@
+<div>
+  <div>
+    <app-user-dashboard></app-user-dashboard>
+  </div>
+  <div class="title">
+    <h3>Dashboard</h3>
+  </div>
+
+  <div>
+    <mat-card class="allFormData">
+      <form fxLayout="column">
+        <mat-grid-list cols="2" rowHeight="780px">
+          <h2>
+            Registered Users
+            <span class="datepicker">
+              <mat-form-field appearance="outline">
+                <mat-label>Monthly</mat-label>
+                <mat-select>
+                  <mat-option value="01">January</mat-option>
+                  <mat-option value="02">February</mat-option>
+                  <mat-option value="03">March</mat-option>
+                  <mat-option value="04">April</mat-option>
+                  <mat-option value="05">May</mat-option>
+                  <mat-option value="06">June</mat-option>
+                  <mat-option value="07">July</mat-option>
+                  <mat-option value="08">August</mat-option>
+                  <mat-option value="09">September</mat-option>
+                  <mat-option value="10">October</mat-option>
+                  <mat-option value="11">November</mat-option>
+                  <mat-option value="12">December</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
+            <span class="Yearpicker">
+              <mat-form-field appearance="outline">
+                <mat-label>Year</mat-label>
+                <mat-select>
+                  <mat-option value="2017">2017</mat-option>
+                  <mat-option value="2018">2018</mat-option>
+                  <mat-option value="2019">2019</mat-option>
+                  <mat-option value="2020">2020</mat-option>
+                  <mat-option value="2021">2021</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
+          </h2>
+
+          <!-- <mat-grid-tile rowspan="2" colspan="2"> -->
+            <!-- <app-bar-chart></app-bar-chart> -->
+            <div class="chart-wrapper">
+              <canvas baseChart 
+              [colors]="barChartColor"
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+            </canvas>
+          </div>
+          <!-- </mat-grid-tile> -->
+        </mat-grid-list>
+      </form>
+    </mat-card>
+  </div>
+</div>

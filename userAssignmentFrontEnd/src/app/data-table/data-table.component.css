@@ -1,0 +1,120 @@
+.example-container {
+  height: 425px;
+  max-width: 76%;
+  overflow: auto;
+  position: absolute;
+  top: 200px;
+  right: 30px;
+  border: 0px solid gray;
+  border-top-left-radius: 2%;
+  border-top-right-radius: 2%;
+}
+body{
+  overflow-x: auto;
+  overflow-y:hidden ;
+}
+
+
+
+table {
+  width: 100vw;
+  height: 0px;
+  max-width: 0%;
+  overflow: auto;
+  margin-bottom: 10px;
+  display: table;
+  border-collapse: collapse;
+  margin: 0px;
+  /* background-color: rgb(238, 238, 238); */
+}
+
+/* td.mat-column-star {
+  width: 20px;
+  padding-right: 8px;
+  
+} */
+
+/* th.mat-column-position,
+td.mat-column-position {
+  padding-left: 88px;
+} */
+
+/* .mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+} */
+
+/* .mat-table-sticky:last-child {
+  border-left: 1px solid #e0e0e0;
+} */
+.title {
+  position: absolute;
+  top: 90px;
+  left: 265px;
+}
+.mat-header-cell {
+  background-color: #c3c7cd;
+  height: 80px;
+}
+.NewAddBtn {
+  position: absolute;
+  top: 150px;
+  right: 15px;
+  text-align: start;
+  width: 120px;
+}
+.searchbar {
+  position: absolute;
+  top: 147px;
+  right: 150px;
+  width: 15%;
+}
+.columnitem {
+  position: absolute;
+  top: 120px;
+  left: 350px;
+  width: 50px;
+}
+.columntable{
+  overflow: hidden;
+}
+.drop-down-icon1{
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 0px;
+
+}
+b{
+  position: absolute;
+  margin-top: -5px;
+}
+input{
+  border-radius: 7%;
+  border-color: transparent;
+
+}
+.table-heading{
+  background-color: #DDDFE1 ;
+  height: 60px;
+  padding-top:10px;
+  /* text-align: left; */
+  padding-left: 20px;
+
+}
+.table-data{
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 20px;
+
+
+}
+.action-icon{
+  position: absolute;
+  margin-top: 0px;
+  width: 50;
+
+}
+.pagination{
+  position: absolute;
+  bottom: 230px;
+  left: 250px;
+}

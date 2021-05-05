@@ -1,0 +1,148 @@
+<div>
+    <app-user-dashboard></app-user-dashboard>
+    <div class="title">
+      <h3>My Update Profile</h3>
+    </div>
+    <div>
+      <mat-card class="allFormData" >
+        <form fxLayout="column" [formGroup]="formVar">
+          <div>
+            <h3><b>Update User Profile</b></h3>
+          </div>
+          <!-- <div class="uploadpict"> -->
+            <label class="hoverable" for="fileInput">
+              <img  name="image" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" width="50px" height="50px"> 
+              <div class="hover-text">Change Image
+                <!-- <img class="camimg" src="assets/cameraicon.jpg" /> -->
+  
+              </div>
+              <div class="background"></div>
+            </label>
+            <br/>
+            <input id="fileInput" type='file' formControlName="file" (change)="onSelectFile($event)">
+            <!-- <button *ngIf="url" (click)="delete()" >delete</button> -->
+            <!-- <img src="assets/accounticon.png" width="100px" height="100px" />
+            <img class="camimg" src="assets/cameraicon.jpg" /> -->
+          <!-- </div> -->
+  
+          <mat-grid-list cols="2" rowHeight="300px">
+            <!-- <mat-grid-tile rowspan="1"></mat-grid-tile> -->
+            <div class="formfield1">
+              <form fxLayout="column" [formGroup]="formVar">
+                <mat-label>User Name</mat-label>
+                <mat-form-field>
+                  <input matInput formControlName="username" required />
+                  <mat-error *ngIf="username.invalid">
+                    <!-- {{ getErrorMessagee_username() }} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>Last Name</mat-label>
+                <mat-form-field>
+                  <input matInput formControlName="lastname" required/>
+                  <mat-error *ngIf="lastname.invalid">
+                    <!-- {{ getErrorMessagee_lastname() }} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>Phone</mat-label>
+                <mat-form-field>
+                  <input matInput type="number" formControlName="number" required/>
+                  <mat-error *ngIf="number.invalid">
+                    <!-- {{getErrorMessagee_number()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>UserId</mat-label>
+                <mat-form-field>
+                  <input matInput formControlName="userid" required />
+                  <mat-error *ngIf="userid.invalid">
+                    <!-- {{getErrorMessagee_userid()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>Gender</mat-label>
+                <mat-form-field>
+                  <input matInput formControlName="gender" required/>
+                  <mat-error *ngIf="gender.invalid">
+                    <!-- {{getErrorMessagee_gender()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>Role</mat-label>
+                <mat-form-field>
+                  <input matInput formControlName="role" placeholder="eq-customer,admin,superadmin" required/>
+                </mat-form-field>
+  
+              </form>
+            </div>
+            <!-- <mat-grid-tile colspan="1"></mat-grid-tile> -->
+            <div class="formfield2">
+              <form fxLayout="column" [formGroup]="formVar">
+                <mat-label>First Name</mat-label>
+                <mat-form-field>
+                  <input matInput formControlName="firstname" required/>
+                  <mat-error *ngIf="firstname.invalid">
+                    <!-- {{getErrorMessagee_firstname()}} -->
+                  </mat-error>                
+                </mat-form-field>
+  
+                <mat-label>Email</mat-label>
+                <mat-form-field>
+                  <input matInput type="email" formControlName="email" required />
+                  <mat-error *ngIf="email.invalid">
+                    <!-- {{getErrorMessagee_email()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>DOB</mat-label>
+                <mat-form-field>
+                  <input matInput type="date" formControlName="dob" required />
+                  <mat-error *ngIf="dob.invalid">
+                    <!-- {{getErrorMessagee_dob()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>Password</mat-label>
+                <mat-form-field>
+                  <input matInput type="password" formControlName="password" readonly/>
+                  <mat-error *ngIf="password.invalid">
+                    <!-- {{getErrorMessagee_password()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-label>Varify Password</mat-label>
+                <mat-form-field>
+                  <input matInput type="password" formControlName="varifypassword" readonly  />
+                  <mat-error *ngIf="varifypassword.invalid">
+                    <!-- {{getErrorMessagee_varifypassword()}} -->
+                  </mat-error>
+                </mat-form-field>
+  
+                
+  
+                <div class="sub-can-btn">
+                  <button
+                    type="button"
+                    mat-raised-button
+                    routerLink="/data_table"
+                  >
+                    CANCEL</button
+                  >&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button
+                    type="button"
+                    (click)="updateUser()"
+                    mat-raised-button
+                    color="accent"
+                  >
+                    UPDATE
+                  </button>
+                </div>
+              </form>
+            </div>
+          </mat-grid-list>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  

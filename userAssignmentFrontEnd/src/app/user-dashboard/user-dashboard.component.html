@@ -1,0 +1,51 @@
+<div>
+  <div class="grid1">
+    <mat-grid-list cols="0" rowHeight="15:1">
+      <div class="icon-logo-div">
+        <div class="reordericon">
+          <span class="material-icons" style="background-color: white; width: 25px">
+            reorder
+          </span>
+        </div>
+        <img class="companylogo" src="assets/11.png" />
+      </div>
+
+      <mat-grid-tile class="tile3">
+        <span class="AlllogoutData">
+          <div mat-raised- matTooltip="Click on Profile Details" class="firstLetter">
+            <h1 *ngFor="let d of data"><button routerLink="/userProfile/{{d._id }}"
+                style="border-radius: 50%;width: 50px; height: 50px;border: none;">{{getUserFLname}}</button>
+            </h1>
+          </div>
+          <mat-panel-title class="logout-name" style="font-size: 1rem;"><b>{{user}}</b></mat-panel-title><br />
+          <mat-label class="role" style="font-size: 0.8rem;">{{getUserRole()}}</mat-label><br />
+          <mat-icon class="logout-icon" (click)="onLogout()"> logout </mat-icon>
+        </span>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="5" rowHeight="1:2.5">
+      <mat-grid-tile class="tile2">
+        <div class="btngroup">
+          <div class="tab">
+            <button routerLink="/dashboard">
+              <mat-icon class="icon1"> format_align_right</mat-icon>
+              Dashboard
+            </button>
+            <button routerLink="/data_table">
+              <mat-icon class="icon1"> people</mat-icon>
+              Users
+            </button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div>
+    <mat-grid-list cols="1" rowHeight="15:1">
+      <mat-grid-tile class="tile4">@Copyright 2021 Exela Technologies, LLC. All Rights Reserved.
+        v21.01.01</mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

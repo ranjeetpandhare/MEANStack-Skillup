@@ -1,0 +1,76 @@
+<div>
+  <div id="exelaimg">
+    <img src="assets/exelaimg.jpg" />
+  </div>
+  <div id="formdiv">
+    <mat-card fxFlex="30" class="allFormData">
+      <form fxLayout="column" [formGroup]="formVar">
+        <div>
+          <mat-icon aria-hidden="false">home</mat-icon>
+        </div>
+        <div id="logo">
+          <img src="assets/exelalogo.png" class="complogo" />
+        </div>
+
+        <mat-label>Login Name</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="username" [formControl]="username" required />
+          <mat-error *ngIf="username.invalid">{{
+            getErrorMessagee_username()
+          }}</mat-error> </mat-form-field
+        >&nbsp;&nbsp;&nbsp;
+
+        <mat-label>password</mat-label>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            [formControl]="password"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.invalid">{{
+            getErrorMessage_password()
+          }}</mat-error> </mat-form-field
+        >&nbsp;&nbsp;&nbsp;
+
+        <mat-checkbox>Remember me</mat-checkbox>&nbsp;
+
+        <button type="submit" (click)="onLogin()" mat-raised-button color="accent">LOGIN</button
+        >&nbsp;
+
+        <span>
+          <a href="" style="color: #017585" id="atag1" class="btn btn-link pr-0"
+            >Forgot Password?</a
+          >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="" style="color: #017585" id="atag2" class="btn btn-link pr-0"
+            >Forgot Username?</a
+          > </span
+        >&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <span>
+          New User ? &nbsp;
+
+          <a routerLink="/signup" style="color: #017585" class="btn btn-link pr-0"
+            >Create an Account</a
+          >
+        </span>
+        <span class="copyright">
+          Copyright 2021,Exela V1 1.0.0 All Rights Reserved.
+        </span>
+      </form>
+    </mat-card>
+  </div>
+</div>

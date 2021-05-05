@@ -1,0 +1,24 @@
+/* #exelaimg {
+    width: 900px;
+  } */
+  .allFormData {
+    position: absolute;
+    top: 0px;
+    right: auto;
+    z-index: initial;
+    margin-left: 905px;
+  }
+  #formfield {
+    position: absolute;
+    top: 10px;
+  }
+    .complogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  .exelaimg{
+      width: 900px;
+      height: 1350px;
+  }

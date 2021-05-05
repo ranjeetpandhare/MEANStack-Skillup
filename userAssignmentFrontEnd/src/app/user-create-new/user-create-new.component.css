@@ -1,0 +1,90 @@
+.allFormData {
+  border: 0.5px solid #dbe1e8;
+  position: absolute;
+  top: 120px;
+  /* left: -640px; */
+  margin-left: 260px;
+  height: 650px;
+  width: 990px;
+}
+.formfield1 {
+  width: 450px;
+}
+.title {
+  position: absolute;
+  top: 90px;
+  left: 265px;
+}
+
+.formfield2 {
+  width: 450px;
+  position: absolute;
+  top: 0px;
+  left: 500px;
+}
+.sub-can-btn {
+  position: relative;
+  bottom: -20px;
+  left: 50px;
+}
+.accicon {
+  font-size: 90px;
+}
+/* .camimg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  left: 80px;
+  top: 120px;
+} */
+
+
+p {
+  font-family: Lato;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.hoverable{
+  position: relative;
+  display: block;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.hoverable .hover-text{
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);   
+  z-index: 2;
+}
+.hoverable .background{
+  position: absolute;
+  display: none;
+  top: 0;
+  left:  0;
+  bottom: 0;
+  right: 0;
+  background-color:rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+.hoverable:hover .hover-text{
+  display: block;
+}
+.hoverable:hover .background{
+  display: block;
+}
+
+#fileInput{
+  display: none;
+}

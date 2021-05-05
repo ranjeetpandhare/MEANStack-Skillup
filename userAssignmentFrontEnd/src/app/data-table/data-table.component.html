@@ -1,0 +1,208 @@
+<!-- call dashborad component -->
+<div class="dashboard-div">
+  <app-user-dashboard></app-user-dashboard>
+</div>
+<!-- Default name -->
+<div class="title">
+  <h3>Users</h3>
+</div>
+<div class="columnitem" style="height:800px;">
+  <mat-icon style="
+      position: absolute;
+      margin-top: 35px;
+      margin-left: -30px;
+      z-index: -1;
+    ">
+    table_chart </mat-icon>&nbsp;&nbsp;&nbsp;
+  <!-- select column -->
+  <span class="columntable">
+    <mat-form-field appearance="outline" style="width: 120px">
+      <mat-label>Column (9)</mat-label>
+      <mat-select style="width: 100px" multiple>
+        <mat-option value="1" (onSelectionChange)="hideShowColumn1()">UserName</mat-option>
+        <mat-option value="2" (onSelectionChange)="hideShowColumn2()"> FirstName</mat-option>
+        <mat-option value="3" (onSelectionChange)="hideShowColumn3()">LastName</mat-option>
+        <mat-option value="4" (onSelectionChange)="hideShowColumn4()">Email</mat-option>
+        <mat-option value="5" (onSelectionChange)="hideShowColumn5()">Number</mat-option>
+        <mat-option value="6" (onSelectionChange)="hideShowColumn6()">DOB</mat-option>
+        <mat-option value="7" (onSelectionChange)="hideShowColumn7()">UserId</mat-option>
+        <mat-option value="8" (onSelectionChange)="hideShowColumn8()">Gender</mat-option>
+        <mat-option value="9" (onSelectionChange)="hideShowColumn9()">Password</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
+</div>
+<!-- search filter -->
+<mat-form-field class="searchbar">
+  <mat-icon class="search-icon" matSuffix>search</mat-icon>
+  <input #myInput matInput type="text" [(ngModel)]="username" (ngModelChange)="Search()" placeholder=" &nbsp; Search"
+    class="search-input" />
+</mat-form-field>
+<!-- create new btn -->
+<span class="NewAddBtn">
+  <button mat-raised-button color="accent" routerLink="/create_new">
+    Create New
+  </button>
+</span>
+<!-- form column -->
+<div class="example-container mat-elevation-y8">
+  <table class="full-width-table" *ngIf="data">
+    <tr>
+      <!-- username heading -->
+      <th class="table-heading" *ngIf="showMeTable1">
+        User Name &nbsp;
+        <i class="fa fa-sort" (click)="sort('username')"></i>
+        <br />
+        <input [(ngModel)]="username" (input)="UsernameFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      <!-- firstname heading -->
+
+      <th class="table-heading" *ngIf="showMeTable2">
+        First Name&nbsp;
+        <i class="fa fa-sort" (click)="sort('firstname')"></i>
+        <br />
+        <input [(ngModel)]="firstname" (input)="firstnameFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      <!-- lastname heading -->
+
+      <th class="table-heading" *ngIf="showMeTable3">
+        Last Name&nbsp;
+        <i class="fa fa-sort" (click)="sort('lastname')"></i>
+        <br />
+        <input [(ngModel)]="lastname" (input)="lastnameFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      <!-- email heading -->
+
+      <th class="table-heading" *ngIf="showMeTable4">
+        Email&nbsp;
+        <i class="fa fa-sort" (click)="sort('email')"></i>
+        <br />
+        <input [(ngModel)]="email" (input)="emailFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      <!-- number heading -->
+
+      <th class="table-heading" *ngIf="showMeTable5">
+        Number&nbsp;
+        <i class="fa fa-sort" (click)="sort('number')"></i>
+        <br />
+        <input style="width: 100px" class="filter" type="text" placeholder="&nbsp;Filter" />
+      </th>
+      <!-- date of birth heading -->
+
+      <th class="table-heading" *ngIf="showMeTable6">
+        DOB&nbsp;
+        <i class="fa fa-sort" (click)="sort('dob')"></i>
+        <br />
+        <input style="width: 100px" class="filter" type="text" placeholder="&nbsp;Filter" />
+      </th>
+      <!-- user id heading -->
+
+      <th class="table-heading" *ngIf="showMeTable7">
+        User Id&nbsp;
+        <i class="fa fa-sort" (click)="sort('userid')"></i>
+        <br />
+        <input [(ngModel)]="userid" (input)="useridFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      <!-- gender heading -->
+
+      <th class="table-heading" *ngIf="showMeTable8">
+        Gender&nbsp;
+        <i class="fa fa-sort" (click)="sort('gender')"></i>
+        <br />
+        <input [(ngModel)]="gender" (input)="genderFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      <!-- password heading -->
+
+      <th class="table-heading" *ngIf="showMeTable9">
+        Password&nbsp;
+        <i class="fa fa-sort" (click)="sort('password')"></i>
+        <br />
+        <input [(ngModel)]="gender" (input)="genderFilter()" style="width: 100px" class="filter" type="text"
+          placeholder="&nbsp;Filter" />
+      </th>
+      
+      <th class="table-heading">Action
+        &nbsp;
+        <!-- <i class="fa fa-sort" (click)="sort('password')"></i> -->
+        <br />
+        <input style="width: 100px" class="filter" type="text" *ngIf="hidefilterAction" />
+      </th>
+      <th class="table-heading">Image
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <!-- <i class="fa fa-sort" (click)="sort('password')"></i> -->
+        <br />
+        <input style="width: 100px" class="filter" type="text" *ngIf="hidefilterAction" />
+      </th>
+
+    </tr>
+    <!-- get  data from backend using  newuser array  -->
+    <tbody>
+      <tr *ngFor="
+          let o of newuser.slice().reverse() 
+            | orderBy: key:reverse
+            | paginate: { itemsPerPage: 5, currentPage: p }
+        ">
+        <td class="table-data" *ngIf="showMeTable1">
+          {{ o.username }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable2">
+          {{ o.firstname }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable3">
+          {{ o.lastname }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable4">
+          {{ o.email }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable5">
+          {{ o.number }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable6">
+          {{ o.dob }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable7">
+          {{ o.userid }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable8">
+          {{ o.gender }}
+          <hr />
+        </td>
+        <td class="table-data" *ngIf="showMeTable9">
+          <span>{{ hashPassword(o.password) }}</span>
+          <hr />
+        </td>
+        <td style="padding-bottom: 25px;padding-left: 10px;">
+          <!-- edit btn -->
+          <a  routerLink="/update/{{ o._id }}">
+            <mat-icon >&nbsp;&nbsp;edit</mat-icon>
+          </a>
+          <!-- delet btn -->
+          <a routerLink="" (click)="deleteUser(o._id)">
+            <mat-icon style="color: red;">&nbsp;&nbsp;delete</mat-icon>
+          </a>
+        </td>
+        <td class="table-data">
+          <!-- <span>{{ o.file }}</span> -->
+          <img style="width: 60px;height: 25px;" src="{{o.file}}"/>
+          <hr />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

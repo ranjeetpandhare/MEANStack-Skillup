@@ -1,0 +1,33 @@
+#exelaimg {
+  width: 400px;
+  height: auto;
+}
+.allFormData {
+  position: absolute;
+  top: 15px;
+  right: auto;
+  z-index: initial;
+  margin-left: 875px;
+  height: 900px;
+}
+#formfield {
+  position: absolute;
+  top: 10px;
+}
+#atag1 {
+  text-align: left;
+}
+#atag2 {
+  text-align: right;
+}
+.complogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+.copyright {
+  position: absolute;
+  bottom: 5px;
+  margin: 40px;
+}

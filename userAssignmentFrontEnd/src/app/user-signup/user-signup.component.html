@@ -1,0 +1,154 @@
+<div>
+  <div>
+    <img src="assets/exelaimg.jpg" class="exelaimg" />
+  </div>
+  <div>
+    <mat-card fxFlex="30" class="allFormData">
+      <form fxLayout="column" [formGroup]="formVar" >
+        <div>
+          <mat-icon aria-hidden="false">home</mat-icon>
+        </div>
+        <div id="logo">
+          <img src="assets/exelalogo.png" class="complogo" />
+        </div>
+        <!-- username -->
+        <mat-label>User Name</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="username" required />
+          <mat-error *ngIf="username.invalid">{{
+            getErrorMessagee_username()
+          }}</mat-error> </mat-form-field
+        >&nbsp;
+
+        <!-- first name -->
+        <mat-label>First Name</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="firstname" required />
+          <mat-error *ngIf="firstname.invalid">{{
+            getErrorMessagee_firstname()
+          }}</mat-error> </mat-form-field
+        >&nbsp;
+
+        <!-- lastname -->
+        <mat-label>Last Name</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="lastname"  required />
+          <mat-error *ngIf="lastname.invalid">{{
+            getErrorMessagee_lastname()
+          }}</mat-error> </mat-form-field
+        >&nbsp;
+
+        <!-- email -->
+        <mat-label>Email</mat-label>
+        <mat-form-field>
+          <input matInput type="email" formControlName="email"  required />
+          <mat-error *ngIf="email.invalid">{{
+            getErrorMessagee_email()
+          }}</mat-error> </mat-form-field
+        >&nbsp;
+
+        <!-- phone number -->
+        <mat-label>Phone</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="number"            
+            [pattern]="mobileNumberPattern"
+            type="number"
+            required
+          />
+          <mat-error *ngIf="number.invalid">{{
+            getErrorMessagee_number()
+          }}</mat-error></mat-form-field
+        >&nbsp;
+
+        <!-- date of birth -->
+        <mat-label>DOB</mat-label>
+        <mat-form-field>
+          <input matInput type="date" formControlName="dob"  required />
+          <mat-error *ngIf="dob.invalid">{{
+            getErrorMessagee_dob()
+          }}</mat-error></mat-form-field
+        >&nbsp;
+
+        <!-- userid -->
+        <mat-label>UserId</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="userid"  required />
+          <mat-error *ngIf="userid.invalid">{{
+            getErrorMessagee_userid()
+          }}</mat-error></mat-form-field
+        >&nbsp;
+
+        <!-- role --> 
+         <!-- <mat-label>Role</mat-label>
+        <mat-form-field>
+          <mat-select>
+            <mat-option >
+          <input matInput formControlName="role" placeholder="eq-customer,admin,superadmin" required/>
+             
+                          </mat-option>
+          </mat-select>
+          </mat-form-field
+        >&nbsp; -->
+        <!-- <mat-label>Role</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="role" placeholder="eq-customer,admin,superadmin" required/>
+          <mat-error *ngIf="gender.invalid">{{
+            getErrorMessagee_gender()
+          }}</mat-error></mat-form-field>
+          &nbsp; -->
+
+
+        <!-- gender -->
+        <mat-label>Gender</mat-label>
+        <mat-form-field>
+          <input matInput  formControlName="gender" required />
+          <mat-error *ngIf="gender.invalid">{{
+            getErrorMessagee_gender()
+          }}</mat-error></mat-form-field
+        >&nbsp;
+
+        <!-- password -->
+        <mat-label>Password</mat-label>
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" required />
+          <mat-error *ngIf="password.invalid">{{
+            getErrorMessagee_password()
+          }}</mat-error></mat-form-field
+        >&nbsp;
+
+        <!-- varify password -->
+        <mat-label>Varify Password</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="varifypassword"
+            type="password"
+            required
+          />
+          <mat-error *ngIf="varifypassword.invalid">{{
+            getErrorMessagee_varifypassword()
+          }}</mat-error>
+          <mat-error *ngIf="varifypassword.invalid && !varifypassword.hasError">{{
+            getErrorMessagee_varifypassword1()
+          }}</mat-error></mat-form-field
+        ><br />
+
+        <button type="submit" (click)="onSubmit()" routerLink="" mat-raised-button color="accent">SIGN UP</button
+        >&nbsp;
+
+        <span>
+          Already have an account ? &nbsp;
+
+          <button routerLink="" style="color: #017585" class="btn btn-link pr-0"
+            >Sign In</button
+          > </span
+        ><br /><br /><br />
+        <span class="copyright">
+          Copyright 2021,Exela V1 1.0.0 All Rights Reserved.
+        </span>
+      </form>
+    </mat-card>
+  </div>
+</div>
