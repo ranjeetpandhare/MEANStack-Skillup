@@ -7,7 +7,6 @@ let UserData = require("../models/users.model");
 // const { updateOne } = require("../models/users.model");
 const bcrypt = require("bcrypt");
 
-
 const logger = log4js.getLogger("Users Controller");
 
 module.exports = {
@@ -19,7 +18,7 @@ module.exports = {
   getById: getById,
 };
 //create user
-function createUser(req, res){
+function createUser(req, res) {
   logger.debug("Inside createUser");
   let userDetails = req.body;
   console.log(req.body);
@@ -41,7 +40,7 @@ async function updateUser(req, res) {
     const UPDATE_USER = await UserData.findOne({ _id: req.params.id });
     if (req.body.file) {
       UPDATE_USER.file = req.body.file;
-    }    
+    }
     if (req.body.username) {
       UPDATE_USER.username = req.body.username;
     }
@@ -70,7 +69,7 @@ async function updateUser(req, res) {
     //    let saltRounds = config.get("saltRounds");
     //   UPDATE_USER.password = bcrypt.hashSync(req.body.password,saltRounds);
     // }
-    if(req.body.role){
+    if (req.body.role) {
       UPDATE_USER.role = req.body.role;
     }
     UPDATE_USER.save();
@@ -86,17 +85,15 @@ async function updateUser(req, res) {
 
 //getById
 async function getById(req, res) {
-   //Decoding base64 to ascii text 
-  let strinbuff=" hello i am exela technology employee";
-  let mybuff=Buffer.from(strinbuff,'utf-8');
-  let result=mybuff.toString('base64');
-  console.log("decode string  " +  result );
-  
-    //Encoding ascii text to base64
-    let bufferObj = Buffer.from(result, "base64");
-    let decodedString = bufferObj.toString("utf8");
-    console.log("encode string" + decodedString);
-
+  //Decoding base64 to ascii text
+  let strinbuff = " hello i am exela technology employee";
+  let mybuff = Buffer.from(strinbuff, "utf-8");
+  let result = mybuff.toString("base64");
+  console.log("decode string  " + result);
+  //Encoding ascii text to base64
+  let bufferObj = Buffer.from(result, "base64");
+  let decodedString = bufferObj.toString("utf8");
+  console.log("encode string" + decodedString);
 
   logger.debug("Inside getByIdUser");
   try {
@@ -114,7 +111,7 @@ async function deleteUser(req, res) {
     res.send(user);
   } catch {
     res.status(404);
-    res.send( { error: "user not deleted!" });
+    res.send({ error: "user not deleted!" });
   }
 }
 
@@ -146,4 +143,3 @@ function listUsers1(req, res) {
     }
   });
 }
-
