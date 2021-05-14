@@ -85,6 +85,7 @@ async function updateUser(req, res) {
 
 //getById
 async function getById(req, res) {
+  
   //Decoding base64 to ascii text
   // let strinbuff = " hello i am exela technology employee";
   // let mybuff = Buffer.from(strinbuff, "utf-8");
