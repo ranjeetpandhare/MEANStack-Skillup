@@ -18,6 +18,7 @@ const userSchema = new Schema(
     gender: { type: String },
     password: { type: String },
     file: { type: String },
+    isVerified:{type:Boolean,default:false},
   },
   {
     // strict: true,

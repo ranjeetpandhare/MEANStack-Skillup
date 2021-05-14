@@ -86,14 +86,14 @@ async function updateUser(req, res) {
 //getById
 async function getById(req, res) {
   //Decoding base64 to ascii text
-  let strinbuff = " hello i am exela technology employee";
-  let mybuff = Buffer.from(strinbuff, "utf-8");
-  let result = mybuff.toString("base64");
-  console.log("decode string  " + result);
+  // let strinbuff = " hello i am exela technology employee";
+  // let mybuff = Buffer.from(strinbuff, "utf-8");
+  // let result = mybuff.toString("base64");
+  // console.log("decode string  " + result);
   //Encoding ascii text to base64
-  let bufferObj = Buffer.from(result, "base64");
-  let decodedString = bufferObj.toString("utf8");
-  console.log("encode string" + decodedString);
+  // let bufferObj = Buffer.from(result, "base64");
+  // let decodedString = bufferObj.toString("utf8");
+  // console.log("encode string" + decodedString);
 
   logger.debug("Inside getByIdUser");
   try {
