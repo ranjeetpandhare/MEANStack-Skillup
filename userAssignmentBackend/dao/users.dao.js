@@ -10,6 +10,7 @@ module.exports = {
   deleteOne: deleteOne
 };
 
+//insert record
 async function insertOne(userDetails) {
   let userData = new UserModel(userDetails);
   let newUser = await userData.save().catch((err) => {
@@ -17,20 +18,21 @@ async function insertOne(userDetails) {
   });
   return newUser;
 }
-
+// find record
 async function findOne(query) {
   let userDetails = await UserModel.findOne(query).catch((err) => {
     return err;
   });
   return userDetails;
 }
-
+// find all record
 async function find(query) {
   let userList = await UserModel.find(query).catch((err) => {
     return err;
   });
   return userList;
 }
+//delete record 
 async function deleteOne(query) {
   let userDeleted = await UserModel.deleteOne(query).catch((err) => {
     return err;
