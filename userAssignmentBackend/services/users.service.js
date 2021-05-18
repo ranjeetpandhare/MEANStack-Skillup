@@ -3,7 +3,6 @@ const config = require("config");
 let log4js = require("log4js");
 const bcrypt = require("bcrypt");
 let tokenService = require("./token.service");
-let mailService = require('./mail.service');
 let usersDao = require("../dao/users.dao");
 const logger = log4js.getLogger("Users Service");
 logger.debug("Banner Service Initiated");
@@ -20,7 +19,6 @@ async function createUser(userDetails, callback) {
 
   userDetails.password = encryptPassword(userDetails.password);
   logger.debug("Hash password : " + userDetails.password);
-  mailService.sendMail(userDetails.email);
 
   let newUserDetails = await usersDao.insertOne(userDetails);
   if (newUserDetails && newUserDetails._id) {
