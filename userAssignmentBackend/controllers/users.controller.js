@@ -1,11 +1,6 @@
-let express = require("express");
 let log4js = require("log4js");
-const config = require("config");
 let usersService = require("../services/users.service");
-// const UserData = require("./models/User");
 let UserData = require("../models/users.model");
-// const { updateOne } = require("../models/users.model");
-const bcrypt = require("bcrypt");
 
 const logger = log4js.getLogger("Users Controller");
 
@@ -75,9 +70,7 @@ async function updateUser(req, res) {
     UPDATE_USER.save();
     logger.debug(req.body.username + " user updated successfully ");
     res.status(200).send({ Message: "user updated sucessfully" });
-    // res.status(200).send({message : User  `${req.body.username} updated successfully` })
   } catch {
-    // logger.error(err);
     res.status(404);
     res.send({ error: "user not updated " });
   }
@@ -85,17 +78,6 @@ async function updateUser(req, res) {
 
 //getById
 async function getById(req, res) {
-  
-  //Decoding base64 to ascii text
-  // let strinbuff = " hello i am exela technology employee";
-  // let mybuff = Buffer.from(strinbuff, "utf-8");
-  // let result = mybuff.toString("base64");
-  // console.log("decode string  " + result);
-  //Encoding ascii text to base64
-  // let bufferObj = Buffer.from(result, "base64");
-  // let decodedString = bufferObj.toString("utf8");
-  // console.log("encode string" + decodedString);
-
   logger.debug("Inside getByIdUser");
   try {
     const user = await UserData.findOne({ _id: req.params.id });
@@ -127,7 +109,6 @@ function loginUser(req, res) {
     } else {
       logger.debug("Success Login User : " + result);
       res.status(200).send(result);
-      // console.log(result);
     }
   });
 }
