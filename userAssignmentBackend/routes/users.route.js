@@ -7,7 +7,6 @@ let usersController = require("../controllers/users.controller");
 
 logger.debug("Users Routes Initiated");
 
-
 //create new user
 router.post("/", usersInterceptor.createUser, usersController.createUser);
 
@@ -18,13 +17,11 @@ router.post("/login", usersInterceptor.loginUser, usersController.loginUser);
 router.get("/list1", usersController.listUsers1);
 
 //delete user by id
- router.delete("/:id", usersController.deleteUser);
+router.delete("/:id", usersController.deleteUser);
 
- //update user
- router.put("/:id",usersController.updateUser);
+//update user
+router.put("/:id", usersController.updateUser);
 
- router.get("/:id",usersController.getById);
-
-
+router.get("/:id", usersController.getById);
 
 module.exports = router;

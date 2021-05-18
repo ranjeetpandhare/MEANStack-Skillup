@@ -7,7 +7,7 @@ module.exports = {
   insertOne: insertOne,
   findOne: findOne,
   find: find,
-  deleteOne: deleteOne
+  deleteOne: deleteOne,
 };
 
 //insert record
@@ -32,11 +32,10 @@ async function find(query) {
   });
   return userList;
 }
-//delete record 
+//delete record
 async function deleteOne(query) {
   let userDeleted = await UserModel.deleteOne(query).catch((err) => {
     return err;
   });
   return userDeleted;
 }
-

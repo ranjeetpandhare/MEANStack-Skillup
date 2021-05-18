@@ -32,7 +32,9 @@ function createUser(req, res) {
 async function updateUser(req, res) {
   logger.debug("inside updateUser");
   try {
-    const UPDATE_USER = await UserData.findOne({ _id: req.params.id });
+    const UPDATE_USER = await UserData.findOne({
+      _id: req.params.id,
+    });
     if (req.body.file) {
       UPDATE_USER.file = req.body.file;
     }
@@ -69,10 +71,14 @@ async function updateUser(req, res) {
     }
     UPDATE_USER.save();
     logger.debug(req.body.username + " user updated successfully ");
-    res.status(200).send({ Message: "user updated sucessfully" });
+    res.status(200).send({
+      Message: "user updated sucessfully",
+    });
   } catch {
     res.status(404);
-    res.send({ error: "user not updated " });
+    res.send({
+      error: "user not updated ",
+    });
   }
 }
 
@@ -80,21 +86,29 @@ async function updateUser(req, res) {
 async function getById(req, res) {
   logger.debug("Inside getByIdUser");
   try {
-    const user = await UserData.findOne({ _id: req.params.id });
+    const user = await UserData.findOne({
+      _id: req.params.id,
+    });
     res.send(user);
   } catch {
     res.status(404);
-    res.send({ error: "user doesn't exist!" });
+    res.send({
+      error: "user doesn't exist!",
+    });
   }
 }
 async function deleteUser(req, res) {
   logger.debug("Inside delete user");
   try {
-    const user = await UserData.deleteOne({ _id: req.params.id });
+    const user = await UserData.deleteOne({
+      _id: req.params.id,
+    });
     res.send(user);
   } catch {
     res.status(404);
-    res.send({ error: "user not deleted!" });
+    res.send({
+      error: "user not deleted!",
+    });
   }
 }
 

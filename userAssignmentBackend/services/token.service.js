@@ -20,8 +20,8 @@ function createToken(userDetails) {
       userid: userDetails.userid,
       gender: userDetails.gender,
       password: userDetails.password,
-      profile:userDetails.profile,
-      role:userDetails.role,
+      profile: userDetails.profile,
+      role: userDetails.role,
       aud: audience_key,
       iss: issuer_key,
       alg: "HS256",
@@ -29,7 +29,9 @@ function createToken(userDetails) {
       mobileNumber: userDetails.mobileNumber,
     },
     secrete_key,
-    { expiresIn: "1h" }
+    {
+      expiresIn: "1h",
+    }
   );
   return token;
 }

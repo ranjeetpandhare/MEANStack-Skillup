@@ -11,7 +11,7 @@ module.exports = {
   createUser: createUser,
   loginUser: loginUser,
   listUsers1: listUsers1,
-  deleteUser: deleteUser
+  deleteUser: deleteUser,
 };
 //create user
 async function createUser(userDetails, callback) {
@@ -35,7 +35,9 @@ async function createUser(userDetails, callback) {
 //delete user by id
 async function deleteUser(userId, callback) {
   logger.debug("Initiated deleteUser");
-  let deleteUserQuery = { _id: userId };
+  let deleteUserQuery = {
+    _id: userId,
+  };
   logger.debug("delete id is : " + deleteUserQuery);
 
   let deleteUserDetails = await usersDao.deleteOne(deleteUserQuery);
@@ -48,7 +50,6 @@ async function deleteUser(userId, callback) {
     callback(deleteUserDetails, null);
   }
 }
-
 
 //password encrypt
 function encryptPassword(plainTextPassword) {
@@ -65,7 +66,9 @@ function comparePassword(plainTextPassword, hashPassword) {
 //Login user
 async function loginUser(credentials, callback) {
   logger.debug("Initiated login User");
-  let findUserQuery = { username: credentials.username };
+  let findUserQuery = {
+    username: credentials.username,
+  };
   let userDetails = await usersDao.findOne(findUserQuery);
   if (userDetails && userDetails._id) {
     let isPasswordMatched = comparePassword(
