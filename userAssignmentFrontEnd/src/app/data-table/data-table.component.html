@@ -40,7 +40,7 @@
 </mat-form-field>
 <!-- create new btn -->
 <span class="NewAddBtn">
-  <button mat-raised-button color="accent" routerLink="/create_new">
+  <button mat-raised-button color="accent" mat-raised- matTooltip= "Create New User" routerLink="/create_new">
     Create New
   </button>
 </span>
@@ -186,11 +186,11 @@
         </td>
         <td style="padding-bottom: 25px;padding-left: 10px;">
           <!-- edit btn -->
-          <a  routerLink="/update/{{ o._id }}">
+          <a  routerLink="/update/{{ o._id }}" mat-raised- matTooltip= "Edit User Info">
             <mat-icon >&nbsp;&nbsp;edit</mat-icon>
           </a>
           <!-- delet btn -->
-          <a routerLink="" (click)="deleteUser(o._id)">
+          <a routerLink="" (click)="deleteUser(o._id)"mat-raised- matTooltip= "Delete User">
             <mat-icon style="color: red;">&nbsp;&nbsp;delete</mat-icon>
           </a>
         </td>
