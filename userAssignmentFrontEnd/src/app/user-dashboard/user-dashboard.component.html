@@ -11,15 +11,15 @@
       </div>
 
       <mat-grid-tile class="tile3">
-        <span class="AlllogoutData">
-          <div mat-raised- matTooltip="Click on Profile Details" class="firstLetter">
-            <h1 *ngFor="let d of data"><button routerLink="/userProfile/{{d._id }}"
+        <span class="AlllogoutData" >
+          <div mat-raised- matTooltip="Click on Profile Details" class="firstLetter" *ngFor="let d of data">
+            <h1><button routerLink="/userProfile/{{d._id }}"
                 style="border-radius: 50%;width: 50px; height: 50px;border: none;">{{getUserFLname}}</button>
             </h1>
           </div>
-          <mat-panel-title class="logout-name" style="font-size: 1rem;"><b>{{user}}</b></mat-panel-title><br />
+          <mat-panel-title mat-raised- matTooltip= "{{user}} logged user " class="logout-name" style="font-size: 1rem;"><b>{{user}}</b></mat-panel-title><br />
           <mat-label class="role" style="font-size: 0.8rem;">{{getUserRole()}}</mat-label><br />
-          <mat-icon class="logout-icon" (click)="onLogout()"> logout </mat-icon>
+          <mat-icon mat-raised- matTooltip=" Click here to Logout " class="logout-icon" (click)="onLogout()"> logout </mat-icon>
         </span>
       </mat-grid-tile>
     </mat-grid-list>
@@ -28,11 +28,11 @@
       <mat-grid-tile class="tile2">
         <div class="btngroup">
           <div class="tab">
-            <button routerLink="/dashboard">
+            <button  routerLink="/dashboard" mat-raised- matTooltip= "User Dashboard" >
               <mat-icon class="icon1"> format_align_right</mat-icon>
               Dashboard
             </button>
-            <button routerLink="/data_table">
+            <button routerLink="/data_table" mat-raised- matTooltip= "Users">
               <mat-icon class="icon1"> people</mat-icon>
               Users
             </button>

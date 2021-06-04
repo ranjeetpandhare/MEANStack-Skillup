@@ -1,8 +1,7 @@
 let log4js = require("log4js");
 let usersService = require("../services/users.service");
 let UserData = require("../models/users.model");
-
-const logger = log4js.getLogger("Users Controller");
+let logger = log4js.getLogger("Users Controller");
 
 module.exports = {
   createUser: createUser,
@@ -62,10 +61,6 @@ async function updateUser(req, res) {
     if (req.body.gender) {
       UPDATE_USER.gender = req.body.gender;
     }
-    // if (req.body.password) {
-    //    let saltRounds = config.get("saltRounds");
-    //   UPDATE_USER.password = bcrypt.hashSync(req.body.password,saltRounds);
-    // }
     if (req.body.role) {
       UPDATE_USER.role = req.body.role;
     }

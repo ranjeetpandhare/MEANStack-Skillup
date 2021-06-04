@@ -100,8 +100,9 @@
 .firstLetter{
   position: absolute;
   left: 330px;
-  top:10px;
+  top:0px;
 }
+
 /* body{
   overflow-x: hidden;
   overflow-y:hidden ;
