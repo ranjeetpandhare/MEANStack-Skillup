@@ -2,6 +2,9 @@ let log4js = require("log4js");
 let usersService = require("../services/users.service");
 let UserData = require("../models/users.model");
 let logger = log4js.getLogger("Users Controller");
+let sendMail;
+let nodemailer = require('nodemailer');
+let isVerified;
 
 module.exports = {
   createUser: createUser,
@@ -11,20 +14,66 @@ module.exports = {
   updateUser: updateUser,
   getById: getById,
 };
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ranjeetexela@gmail.com',
+    pass: 'Passw0rdnew'
+  }
+});
+
+
+
 //create user
-function createUser(req, res) {
+async function createUser(req, res) {
   logger.debug("Inside createUser");
   let userDetails = req.body;
-  console.log(req.body);
-  usersService.createUser(userDetails, (err, result) => {
-    if (err) {
-      logger.error("Create User : " + err);
-      res.status(500).send(err);
-    } else {
-      logger.debug("Success create User : " + result);
-      res.status(200).send(result);
-    }
-  });
+  let sendEmail = req.body.email;
+  let userName = req.body.userName;
+  isVariyBooleanValue = req.body.isVerified;
+  let myEmail = 'ranjeetexela@gmail.com';
+  let varifiedToken = "sfdsadsda4411adaddcasdca4243#vxvvc313131111313";
+
+  let mailoptions = {
+    from: myEmail,
+    to: sendEmail,
+    subject: 'send varification link  ',
+    text: `Hi user ${userName} please varify the token
+     click on below link and active your account <a> ${varifiedToken} </a> `
+  };
+
+  if (!varifiedToken) {
+    logger.error("token varified is invalid");
+  } else {
+    sendMail = await transporter.sendMail(mailoptions, function (err) {
+      if (err) {
+        logger.error(err);
+      } else {
+        logger.debug(`email succesfully sent on user ${sendEmail} address `);
+      }
+    })
+
+    isVerified = await confirmVarifyEmailToken(varifiedToken);
+
+    usersService.createUser(userDetails, (err, result) => {
+      if (err) {
+        logger.error("Create User : " + err);
+        res.status(500).send(err);
+      } else {
+        logger.debug("Success create User : " + result);
+        res.status(200).send(result);
+      }
+    });
+  }
+}
+
+async function confirmVarifyEmailToken(varifiedToken) {
+  if (varifiedToken == "sfdsadsda4411adaddcasdca4243#vxvvc313131111313") {
+    isVariyBooleanValue = true;
+    logger.debug("Token varify sucessfull");
+  } else {
+    logger.debug(" Email Token is not varified ");
+  }
 }
 
 //update user
